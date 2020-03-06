@@ -20,16 +20,14 @@
           <hr />
           <div class="card-body mx-3">
               <div class="row">
-                  <input class="form-control" type="hidden" name="clientWeekday" value="{{ dayofweek }}">
-                  <input class="form-control" type="hidden" name="clientTime" value="{{ time }}">
-                  <input class="form-control" type="hidden" name="clientTeacher" value="{{ tutor.id }}">
+                  {{ form.clientWeekday(class="form-control", type="hidden", value=dayofweek)}}
+                  {{ form.clientTime(class="form-control", type="hidden", value=time)}}
+                  {{ form.clientTeacher(class="form-control", type="hidden", value=tutor.id)}}
               </div>
-
-            <label class="mb-1 mt-2" for="clientName">Вас зовут</label>
-            <input class="form-control" type="text" name="clientName" id="clientName">
-
-            <label class="mb-1 mt-2" for="clientPhone">Ваш телефон</label>
-            <input class="form-control" type="tel"  name="clientPhone" id="clientPhone">
+            {{ form.clientName.label(class="mb-1 mt-2") }}
+            {{ form.clientName(class="form-control", type="text")}}
+            {{ form.clientPhone.label(class="mb-1 mt-2") }}
+            {{ form.clientPhone(class="form-control", type="tel")}}
 
             <input type="submit" class="btn btn-primary btn-block mt-4" value="Записаться на пробный урок">
 

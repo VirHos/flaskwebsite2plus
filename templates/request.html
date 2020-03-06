@@ -12,67 +12,31 @@
         <div class="card-body mx-3">
           <div class="row">
             <div class="col">
-              <p>Какая цель занятий?</p>
+              <p>{{ form.goal.label(class="form-check-label") }}</p>
+              {% for choice in form.goal %}
               <div class="form-check ">
-                <input type="radio" class="form-check-input" name="goal" value="travel" id="goal1" checked>
-                <label class="form-check-label" for="goal1">
-                  Для путешествий
-                </label> 
+              {{ choice(required="required") }}
+              {{ choice.label }}
               </div>
-              <div class="form-check ">
-                <input type="radio" class="form-check-input" name="goal" value="learn" id="goal2">
-                <label class="form-check-label" for="goal2">
-                  Для школы
-                </label>
-              </div>
-              <div class="form-check ">
-                <input type="radio" class="form-check-input" name="goal" value="work" id="goal3">
-                <label class="form-check-label" for="goal2">
-                  Для работы
-                </label>
-              </div>
-              <div class="form-check ">
-                <input type="radio" class="form-check-input" name="goal" value="move" id="goal4">
-                <label class="form-check-label" for="goal2">
-                  Для переезда
-                </label>
-              </div>
+              {% endfor %}
             </div>
             <div class="col">
-              <p>Сколько времени есть?</p>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" name="time" value="1-2" id="time1">
-                <label class="form-check-label" for="time1">
-                  1-2 часа в&nbsp;неделю
-                </label> 
+              <p>{{ form.time.label(class="form-check-label") }}</p>
+              {% for choice in form.time %}
+              <div class="form-check ">
+              {{ choice(required="required") }}
+              {{ choice.label }}
               </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" name="time" value="3-5" id="time2">
-                <label class="form-check-label" for="time2">
-                  3-5 часов в&nbsp;неделю
-                </label>
-              </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" name="time" value="5-7" id="time3" checked>
-                <label class="form-check-label" for="time3">
-                  5-7 часов в&nbsp;неделю
-                </label> 
-              </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" name="time" value="7-10" id="time4">
-                <label class="form-check-label" for="time4">
-                  7-10 часов в&nbsp;неделю
-                </label>
-              </div>
+              {% endfor %}
             </div>
           </div>
         </div>
         <hr>
         <div class="card-body mx-3">
-          <label class="mb-1 mt-2">Вас зовут</label>
-          <input class="form-control" name="clientName" type="text" placeholder="">
-          <label class="mb-1 mt-2">Ваш телефон</label>
-          <input class="form-control" name="clientPhone" type="text" placeholder="">
+          {{ form.clientName.label(class="mb-1 mt-2") }}
+          {{ form.clientName(class="form-control", type="text")}}
+          {{ form.clientPhone.label(class="mb-1 mt-2") }}
+          {{ form.clientPhone(class="form-control", type="tel")}}
           <input type="submit" class="btn btn-primary mt-4 mb-2" value="Найдите мне преподавателя">
         </div>
       </form>
